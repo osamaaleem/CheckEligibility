@@ -1,0 +1,48 @@
+﻿@model WE_Asgn_2.Models.ElgCalculator
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Admission Form</h2>
+@using (Html.BeginForm("Index", "Eligibility", FormMethod.Post))
+{
+<table>
+    <tr>
+        <td>Name</td>
+        <td>@Html.TextBoxFor(x => x.Name)</td>
+    </tr>
+    <tr>
+        <td>Age</td>
+        <td>@Html.TextBoxFor(x => x.Age)</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td>Male: @Html.RadioButtonFor(x => x.Gender, "M")Female: @Html.RadioButtonFor(x => x.Gender, "F")</td>
+    </tr>
+    <tr>
+        <td>Degree of Highest Qualification</td>
+        <td>FSC: @Html.RadioButtonFor(x => x.Qualification, "FSC")BCS: @Html.RadioButtonFor(x => x.Qualification, "BCS")</td>
+    </tr>
+    <tr>
+        <td>Last Degree Obtained Marks</td>
+        <td>@Html.TextBoxFor(x => x.ObtainedMarks)</td>
+    </tr>
+    <tr>
+        <td>Last Degree Total Marks</td>
+        <td>@Html.TextBoxFor(x => x.TotalMarks)</td>
+    </tr>
+    <tr>
+        <td>Province</td>
+        <td>@Html.DropDownListFor(x => x.Province, (List<SelectListItem>)ViewBag.Provinces,"--Select--")</td>
+    </tr>
+    <tr>
+        <td>Eligible?</td>
+        <td>@ViewBag.Eligible</td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Check Eligiblity" /></td>
+    </tr>
+</table>
+}
+
+
